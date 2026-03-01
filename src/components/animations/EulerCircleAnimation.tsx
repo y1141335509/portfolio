@@ -30,9 +30,9 @@ export default function EulerCircleAnimation() {
       const h = canvas.height
       ctx.clearRect(0, 0, w, h)
 
-      const R = Math.min(w, h) * 0.17
-      const cx = w * 0.42
-      const cy = h * 0.52
+      const R = Math.min(w, h) * 0.14
+      const cx = w * 0.16
+      const cy = h * 0.56
       const A = 0.11  // global alpha multiplier
 
       const px = cx + R * Math.cos(theta)

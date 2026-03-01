@@ -117,9 +117,9 @@ export default function Projects() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: 'easeOut' }}
               whileHover={{ y: -5 }}
-              className="group relative bg-navy-light rounded p-6 flex flex-col h-full
-                border border-navy-lighter/50
-                hover:border-accent/20 hover:bg-[#172a45]
+              className="group relative bg-navy-light/55 backdrop-blur-sm rounded p-6 flex flex-col h-full
+                border border-navy-lighter/40
+                hover:border-accent/25 hover:bg-navy-light/70
                 transition-all duration-200 cursor-default"
             >
               {/* Top row */}
@@ -162,9 +162,12 @@ export default function Projects() {
               </p>
 
               {/* Tech stack */}
-              <ul className="flex flex-wrap gap-x-3 gap-y-1">
+              <ul className="flex flex-wrap gap-1.5">
                 {project.tech.map((t) => (
-                  <li key={t} className="font-mono text-xs text-slate/70">
+                  <li
+                    key={t}
+                    className="font-mono text-xs text-slate/75 border border-navy-lighter/60 bg-navy/40 rounded-full px-2.5 py-0.5"
+                  >
                     {t}
                   </li>
                 ))}

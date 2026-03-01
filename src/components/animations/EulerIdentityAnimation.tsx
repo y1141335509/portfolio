@@ -45,7 +45,7 @@ export default function EulerIdentityAnimation() {
       const base = Math.min(w, h) * 0.085
       // total width of the formula ≈ 5.2 * base; center it
       const startX = w * 0.5 - base * 2.6
-      const startY = h * 0.5
+      const startY = h * 0.76
 
       if (phase === 'writing') {
         globalAlpha = Math.min(0.18, phaseTimer / 600 * 0.18)

@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: 'About | Yinghai Yu' }
 export default function AboutPage() {
   return (
     <>
-      <LichtenbergAnimation />
+      <LichtenbergAnimation originX={0.28} originY={0.50} />
       <main className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24 min-h-[calc(100vh-160px)]">
         <About />
       </main>
