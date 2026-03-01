@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import BackgroundAnimation from '@/components/BackgroundAnimation'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans bg-navy bg-grid text-slate antialiased`}>
-        {children}
+        <BackgroundAnimation />
+        <div className="relative" style={{ zIndex: 1 }}>
+          {children}
+        </div>
       </body>
     </html>
   )
