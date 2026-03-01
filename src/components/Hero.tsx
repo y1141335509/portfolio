@@ -39,7 +39,7 @@ export default function Hero() {
         I&apos;m a data engineer specializing in scalable pipelines, real-time streaming, and
         ML-powered data systems. Currently building data infrastructure at{' '}
         <a
-          href="#experience"
+          href="/experience"
           className="text-accent hover:underline underline-offset-4 transition-colors"
         >
           Bubbles and Books
@@ -49,13 +49,13 @@ export default function Hero() {
 
       <motion.div {...fadeUp(0.7)} className="flex items-center gap-4 flex-wrap">
         <a
-          href="#contact"
+          href="/contact"
           className="inline-flex items-center border border-accent text-accent font-mono text-sm px-7 py-4 rounded hover:bg-accent/10 transition-colors duration-200"
         >
           Get In Touch
         </a>
         <a
-          href="#projects"
+          href="/projects"
           className="inline-flex items-center text-slate-lighter font-mono text-sm px-4 py-4 hover:text-accent transition-colors duration-200"
         >
           See My Work

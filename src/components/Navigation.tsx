@@ -1,13 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'About', href: '/about' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 const GitHubIcon = () => (
@@ -32,6 +34,7 @@ const EmailIcon = () => (
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -39,7 +42,6 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMenuOpen(false)
@@ -47,6 +49,13 @@ export default function Navigation() {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  const isActive = (href: string) => pathname === href
 
   return (
     <motion.header
@@ -58,56 +67,41 @@ export default function Navigation() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 md:px-12 h-16 md:h-20 flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="#"
+        {/* Logo — always links home */}
+        <Link
+          href="/"
           className="font-mono text-accent text-lg font-semibold hover:opacity-75 transition-opacity duration-200 select-none"
           aria-label="Home"
         >
           <span className="opacity-70">&lt;</span>YY<span className="opacity-70">/&gt;</span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           <ol className="flex items-center gap-1 list-none">
             {navLinks.map((link, i) => (
               <li key={link.name}>
-                <a
+                <Link
                   href={link.href}
-                  className="group flex items-center gap-1 px-4 py-2 text-slate hover:text-slate-white transition-colors duration-200"
+                  className={`group flex items-center gap-1 px-4 py-2 transition-colors duration-200 ${
+                    isActive(link.href) ? 'text-accent' : 'text-slate hover:text-slate-white'
+                  }`}
                 >
                   <span className="font-mono text-accent text-xs">{`0${i + 1}.`}</span>
                   <span className="text-sm">{link.name}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ol>
 
-          {/* Social icons */}
           <div className="flex items-center gap-4 border-l border-navy-lighter pl-6">
-            <a
-              href="https://github.com/y1141335509"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate hover:text-accent transition-colors duration-200"
-              aria-label="GitHub"
-            >
+            <a href="https://github.com/y1141335509" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors duration-200" aria-label="GitHub">
               <GitHubIcon />
             </a>
-            <a
-              href="https://www.linkedin.com/in/yinghai-yu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate hover:text-accent transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
+            <a href="https://www.linkedin.com/in/yinghai-yu/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors duration-200" aria-label="LinkedIn">
               <LinkedInIcon />
             </a>
-            <a
-              href="mailto:yinghaiyu67@gmail.com"
-              className="text-slate hover:text-accent transition-colors duration-200"
-              aria-label="Email"
-            >
+            <a href="mailto:yinghaiyu67@gmail.com" className="text-slate hover:text-accent transition-colors duration-200" aria-label="Email">
               <EmailIcon />
             </a>
           </div>
@@ -146,27 +140,22 @@ export default function Navigation() {
               <ol className="flex flex-col gap-4 list-none">
                 {navLinks.map((link, i) => (
                   <li key={link.name}>
-                    <a
+                    <Link
                       href={link.href}
-                      className="flex items-center gap-3 text-slate-lighter hover:text-accent transition-colors duration-200"
-                      onClick={() => setMenuOpen(false)}
+                      className={`flex items-center gap-3 transition-colors duration-200 ${
+                        isActive(link.href) ? 'text-accent' : 'text-slate-lighter hover:text-accent'
+                      }`}
                     >
                       <span className="font-mono text-accent text-xs">{`0${i + 1}.`}</span>
                       <span className="text-base">{link.name}</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ol>
               <div className="flex items-center gap-5 pt-4 border-t border-navy-lighter">
-                <a href="https://github.com/y1141335509" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="GitHub">
-                  <GitHubIcon />
-                </a>
-                <a href="https://www.linkedin.com/in/yinghai-yu/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="LinkedIn">
-                  <LinkedInIcon />
-                </a>
-                <a href="mailto:yinghaiyu67@gmail.com" className="text-slate hover:text-accent transition-colors" aria-label="Email">
-                  <EmailIcon />
-                </a>
+                <a href="https://github.com/y1141335509" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="GitHub"><GitHubIcon /></a>
+                <a href="https://www.linkedin.com/in/yinghai-yu/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="LinkedIn"><LinkedInIcon /></a>
+                <a href="mailto:yinghaiyu67@gmail.com" className="text-slate hover:text-accent transition-colors" aria-label="Email"><EmailIcon /></a>
               </div>
             </div>
           </motion.div>
