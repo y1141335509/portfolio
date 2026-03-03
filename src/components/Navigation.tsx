@@ -9,6 +9,7 @@ const navLinks = [
   { name: 'About', href: '/about' },
   { name: 'Experience', href: '/experience' },
   { name: 'Projects', href: '/projects' },
+  { name: 'Journey', href: '/timeline' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -28,6 +29,20 @@ const EmailIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="4" width="20" height="16" rx="2" />
     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </svg>
+)
+
+const GoogleScholarIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+    {/* Graduation cap silhouette */}
+    <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 12.08L4.5 10.9 12 6.75l7.5 4.15L12 15.08zM12 17c-2.76 0-5.19.88-7 2.34V21h14v-1.66C17.19 17.88 14.76 17 12 17z" />
+  </svg>
+)
+
+const LeetCodeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.823-.662l-4.38-4.639c-.467-.467-.7-1.15-.7-1.863s.233-1.357.7-1.824l4.38-4.639c.466-.467 1.111-.7 1.823-.7s1.357.233 1.823.7l2.697 2.606c.514.515 1.366.515 1.88 0 .513-.515.513-1.366 0-1.88l-2.698-2.606c-.976-.976-2.264-1.485-3.702-1.485s-2.726.51-3.702 1.485l-4.38 4.639c-.976 1.012-1.485 2.3-1.485 3.702s.509 2.69 1.485 3.663l4.38 4.639c.976.976 2.264 1.485 3.702 1.485s2.726-.51 3.702-1.485l2.697-2.606c.514-.515.514-1.366 0-1.88-.513-.515-1.365-.515-1.88 0z" />
+    <path d="M20.823 13.5h-8.87c-.734 0-1.323.597-1.323 1.323s.59 1.323 1.323 1.323h8.87c.734 0 1.323-.597 1.323-1.323s-.59-1.323-1.323-1.323z" />
   </svg>
 )
 
@@ -101,6 +116,12 @@ export default function Navigation() {
             <a href="https://www.linkedin.com/in/yinghai-yu/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors duration-200" aria-label="LinkedIn">
               <LinkedInIcon />
             </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=k8x7nqwAAAAJ" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors duration-200" aria-label="Google Scholar">
+              <GoogleScholarIcon />
+            </a>
+            <a href="https://leetcode.com/u/quabouquet/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors duration-200" aria-label="LeetCode">
+              <LeetCodeIcon />
+            </a>
             <a href="mailto:yinghaiyu67@gmail.com" className="text-slate hover:text-accent transition-colors duration-200" aria-label="Email">
               <EmailIcon />
             </a>
@@ -155,6 +176,8 @@ export default function Navigation() {
               <div className="flex items-center gap-5 pt-4 border-t border-navy-lighter">
                 <a href="https://github.com/y1141335509" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="GitHub"><GitHubIcon /></a>
                 <a href="https://www.linkedin.com/in/yinghai-yu/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="LinkedIn"><LinkedInIcon /></a>
+                <a href="https://scholar.google.com/citations?hl=en&user=k8x7nqwAAAAJ" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="Google Scholar"><GoogleScholarIcon /></a>
+                <a href="https://leetcode.com/u/quabouquet/" target="_blank" rel="noopener noreferrer" className="text-slate hover:text-accent transition-colors" aria-label="LeetCode"><LeetCodeIcon /></a>
                 <a href="mailto:yinghaiyu67@gmail.com" className="text-slate hover:text-accent transition-colors" aria-label="Email"><EmailIcon /></a>
               </div>
             </div>

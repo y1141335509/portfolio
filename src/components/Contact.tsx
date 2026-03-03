@@ -12,7 +12,7 @@ export default function Contact() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="max-w-lg mx-auto text-center"
       >
-        <p className="font-mono text-accent text-sm mb-4 tracking-wide">04. What&apos;s Next?</p>
+        <p className="font-mono text-accent text-sm mb-4 tracking-wide">05. What&apos;s Next?</p>
 
         <h2 className="text-slate-white text-4xl md:text-5xl font-bold mb-6 leading-tight">
           Get In Touch

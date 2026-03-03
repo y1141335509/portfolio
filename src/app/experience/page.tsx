@@ -2,7 +2,11 @@ import type { Metadata } from 'next'
 import Experience from '@/components/Experience'
 import EulerCircleAnimation from '@/components/animations/EulerCircleAnimation'
 
-export const metadata: Metadata = { title: 'Experience | Yinghai Yu' }
+export const metadata: Metadata = {
+  title: 'Experience | Yinghai Yu',
+  description:
+    'Work experience at Bubbles and Books, GrubMarket, Weris Inc., Tencent, and more. Specializing in scalable data pipelines, real-time streaming, ML systems, and cloud infrastructure on AWS and Azure.',
+}
 
 export default function ExperiencePage() {
   return (

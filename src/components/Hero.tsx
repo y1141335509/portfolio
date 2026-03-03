@@ -63,6 +63,17 @@ export default function Hero() {
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
+        <a
+          href="/Yinghai_Yu_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-slate font-mono text-sm px-4 py-4 hover:text-accent transition-colors duration-200"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Resume
+        </a>
       </motion.div>
     </section>
   )

@@ -43,6 +43,45 @@ const experiences = [
       'Designed S3-to-Databricks data pipelines with Parquet format optimization for downstream analytics workloads.',
     ],
   },
+  {
+    company: 'Tencent',
+    role: 'Data Science Intern',
+    period: 'Jun 2019 – Aug 2019',
+    location: 'Shenzhen, China',
+    bullets: [
+      'Analyzed competitive positioning of mobile app stores (including Tencent App Store) across market share and DAU metrics, identifying key gaps versus major competitors.',
+      'Authored SQL queries against production databases to aggregate app store rankings by downloads, DAU, and MAU, supporting data-driven product decisions.',
+      'Built Power BI dashboards to communicate market intelligence findings; delivered research reports to product managers for roadmap planning.',
+    ],
+  },
+  {
+    company: 'Global AI',
+    role: 'Quantitative Strategist',
+    period: 'Aug 2018 – Dec 2018',
+    location: 'Remote',
+    bullets: [
+      'Engineered a Python web crawler framework to ingest greenhouse gas emission and large time-series datasets from heterogeneous public sources.',
+      'Designed an end-to-end data ingestion pipeline to receive, normalize, and persist scraped records to a local database for downstream analysis.',
+      'Conducted exploratory data analysis in R with ggplot2, extracting actionable insights from structured query outputs to inform business strategy.',
+      'Built and validated a Markov regime-switching model for GDP nowcasting, achieving a ~3% reduction in short-term forecast error.',
+      "Presented findings to senior leadership; results were approved for production-quality visualization in Plotly as part of the company's Sustainable Development Goals initiative.",
+    ],
+    github: 'https://github.com/iyutpo/Greenhouse',
+  },
+  {
+    company: 'Shandong Univ. of Tech.',
+    role: 'Research Assistant',
+    period: 'Jan 2017 – Jul 2017',
+    location: 'Zibo, China',
+    bullets: [
+      'Extracted and cleaned China highway mileage data from ArcGIS geodatabases using SQL, resolving missing values across provincial-level geographic records.',
+      "Defined a weighted average travel time metric and validated its spatial autocorrelation via Moran's Index as a precondition for spatial regression modeling.",
+      'Implemented a Spatial Autoregression Model to quantify the economic impact of highway accessibility improvements across Jiangsu Province.',
+      'Conducted sensitivity analysis to assess model robustness, establishing a statistically significant link between travel time reduction and regional GDP growth.',
+      'Estimated that accessibility gains yielded $0.15B–$0.22B USD in economic uplift; findings were peer-reviewed and published in Transport Policy (2018).',
+    ],
+    publication: 'https://www.sciencedirect.com/science/article/abs/pii/S0197397517301790',
+  },
 ]
 
 export default function Experience() {
@@ -115,6 +154,32 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Optional links for research/early roles */}
+                {(experiences[activeTab].github || experiences[activeTab].publication) && (
+                  <div className="flex flex-wrap gap-3 mt-6 pt-5 border-t border-navy-lighter/30">
+                    {experiences[activeTab].github && (
+                      <a
+                        href={experiences[activeTab].github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-xs text-slate border border-navy-lighter/50 rounded-full px-3 py-1.5 hover:text-accent hover:border-accent/40 transition-all duration-200"
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
+                    {experiences[activeTab].publication && (
+                      <a
+                        href={experiences[activeTab].publication}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-xs text-slate border border-navy-lighter/50 rounded-full px-3 py-1.5 hover:text-accent hover:border-accent/40 transition-all duration-200"
+                      >
+                        Publication ↗
+                      </a>
+                    )}
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>

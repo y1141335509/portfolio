@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const skills = [
   'Python',
@@ -33,11 +34,25 @@ export default function About() {
           <span className="flex-1 h-px bg-navy-lighter ml-5" />
         </h2>
 
+        {/* Mobile-only avatar */}
+        <div className="flex justify-center mb-10 md:hidden">
+          <div className="w-32 h-32 overflow-hidden rounded border border-navy-lighter/40 hover:border-accent/20 transition-colors duration-300">
+            <Image
+              src="/avatars/handsome-guy.jpeg"
+              alt="Yinghai Yu"
+              width={128}
+              height={128}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-5 gap-10 lg:gap-16">
           {/* Text content */}
           <div className="md:col-span-3 space-y-4 text-slate leading-relaxed">
             <p>
-              I&apos;m a data engineer with 5+ years of experience building production-grade data
+              I&apos;m a data engineer with 6+ years of experience building production-grade data
               infrastructure — from batch ETL pipelines to trillion-row real-time streams. I specialize
               in turning messy, high-volume data into reliable systems that produce measurable business
               outcomes.
@@ -47,8 +62,12 @@ export default function About() {
               <span className="text-slate-lighter">GrubMarket</span>, e-commerce at{' '}
               <span className="text-slate-lighter">Bubbles and Books</span>, and government contracting
               at <span className="text-slate-lighter">Weris Inc.</span> — which has meant adapting to
-              very different data environments, constraints, and stakeholder expectations. I hold an M.S.
-              in Computer Science from Georgia Tech and an M.S. in Engineering from Penn State.
+              very different data environments, constraints, and stakeholder expectations. I hold three
+              degrees: an M.S. in Computer Science from{' '}
+              <span className="text-slate-lighter">Georgia Tech</span>, an M.S. in Civil Engineering
+              from <span className="text-slate-lighter">Penn State</span>, and a B.S. in Engineering
+              from <span className="text-slate-lighter">Shandong University of Technology</span> — a
+              cross-disciplinary foundation that shapes how I reason about systems at scale.
             </p>
             <p>
               Outside of work: I&apos;ve spent years analyzing resource optimization and decision-making
@@ -72,19 +91,36 @@ export default function About() {
             </div>
           </div>
 
-          {/* Decorative side element */}
-          <div className="hidden md:flex md:col-span-2 items-start justify-center mt-2">
-            <div className="relative w-56 h-56 lg:w-64 lg:h-64">
-              {/* Offset border */}
-              <div className="absolute inset-0 border-2 border-accent rounded translate-x-4 translate-y-4 opacity-40" />
-              {/* Card */}
-              <div className="relative w-full h-full bg-navy-light rounded border border-navy-lighter flex flex-col items-center justify-center gap-3">
-                <span className="font-mono text-accent text-5xl font-bold opacity-20 select-none">YY</span>
-                <div className="flex flex-col items-center gap-1 text-center px-4">
-                  <span className="font-mono text-accent text-xs opacity-60">data engineer</span>
-                  <span className="font-mono text-slate text-xs opacity-40">san mateo, ca</span>
+          {/* Avatar + Stats */}
+          <div className="hidden md:block md:col-span-2 mt-1 space-y-4">
+            {/* Avatar */}
+            <div className="overflow-hidden rounded border border-navy-lighter/40 hover:border-accent/20 transition-colors duration-300">
+              <Image
+                src="/avatars/handsome-guy.jpeg"
+                alt="Yinghai Yu"
+                width={400}
+                height={400}
+                className="w-full object-cover"
+                priority
+              />
+            </div>
+            {/* Stats card grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { value: '6+', label: 'Years Experience' },
+                { value: '6', label: 'Roles' },
+                { value: '$9M+', label: 'Business Impact' },
+                { value: '3', label: 'Degrees' },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-navy-light/50 border border-navy-lighter/40 rounded p-4
+                    hover:border-accent/20 transition-colors duration-200"
+                >
+                  <p className="font-mono text-accent text-2xl font-bold leading-none">{stat.value}</p>
+                  <p className="text-slate text-xs mt-2 leading-snug">{stat.label}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
