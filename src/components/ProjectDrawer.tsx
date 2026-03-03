@@ -22,6 +22,7 @@ export interface ProjectWithArch {
   tech: string[]
   github: string | null
   external: string | null
+  badge?: string   // short domain label shown on the card top-right, e.g. 'RAG · LLM'
   architecture: ProjectArchitecture | null
 }
 

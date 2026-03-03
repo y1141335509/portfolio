@@ -199,6 +199,7 @@ export default function PipelineGraph({
         zoomOnPinch={true}
         zoomOnDoubleClick={true}
         preventScrolling={false}
+        proOptions={{ hideAttribution: true }}
         style={{ background: '#0a192f' }}
       >
         <Background

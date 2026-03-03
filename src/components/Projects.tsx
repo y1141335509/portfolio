@@ -574,6 +574,7 @@ const projects: ProjectWithArch[] = [
     tech: ['Python', 'PySpark', 'dbt', 'Databricks ML', 'Isolation Forest', 'Airflow'],
     github: null,
     external: null,
+    badge: 'ML · Anomaly Detection',
     architecture: {
       overview:
         'Dual-path data platform across 90+ GrubMarket subsidiary ERPs. The batch path (JDBC → Snowflake → dbt → Tableau) powers pre-IPO audit reporting. The near-real-time path (SuiteScript → S3 → PySpark → Databricks) feeds the ML anomaly detection pipeline — identifying $2M+ in previously undetected financial exposure via rule-based checks and Isolation Forest scoring.',
@@ -598,6 +599,7 @@ const projects: ProjectWithArch[] = [
     tech: ['PySpark', 'AWS S3', 'Apache Spark', 'Databricks', 'Delta Lake', 'Airflow'],
     github: null,
     external: null,
+    badge: 'Streaming · Exactly-Once',
     architecture: {
       overview:
         'PySpark Structured Streaming pipeline ingesting real-time ERP events from Oracle NetSuite via SuiteScript API. Processes data through 5-minute micro-batch windows on Databricks, with exactly-once delivery guaranteed through WAL checkpointing and idempotent writes to a Hive Delta Lake store at trillion-row scale.',
@@ -622,6 +624,7 @@ const projects: ProjectWithArch[] = [
     tech: ['LangChain', 'GPT-4', 'Python', 'AWS', 'Vector DB', 'FastAPI'],
     github: null,
     external: null,
+    badge: 'RAG · LLM',
     architecture: {
       overview:
         'RAG pipeline built for Bubbles & Books e-commerce. A LangChain knowledge base ingests product catalog, FAQs, and policy docs — chunked, embedded via OpenAI text-embedding-3, and stored in Pinecone. At inference time, the RAG engine retrieves Top-K=5 chunks (similarity ≥ 0.75), constructs an augmented prompt, and sends it to GPT-4-turbo for grounded response generation. Result: 40% reduction in customer support workload.',
@@ -646,6 +649,7 @@ const projects: ProjectWithArch[] = [
     tech: ['Llama 2', 'AWS SageMaker', 'Python', 'PyTorch', 'Hugging Face'],
     github: null,
     external: null,
+    badge: 'LLM · Fine-tuning',
     architecture: {
       overview:
         'Fine-tuning and deployment pipeline for Llama 2 7B at Bubbles & Books. 5K+ historical product records were preprocessed into instruction-tuning pairs (title + attributes → description). LoRA fine-tuning ran on AWS SageMaker ml.g5.2xlarge (A10G 24GB) for ~8 hours over 3 epochs. The resulting model is served via a SageMaker inference endpoint with auto-scaling, integrated into the Spring Boot backend via POST /api/generate-description.',
@@ -670,6 +674,7 @@ const projects: ProjectWithArch[] = [
     tech: ['TensorFlow', 'Azure ML', 'Azure DevOps', 'Scrapy', 'Spring Boot', 'React'],
     github: null,
     external: null,
+    badge: 'MLOps · CI/CD',
     architecture: {
       overview:
         'End-to-end MLOps pipeline built at Weris Inc. Scrapy crawlers ingest daily data from WHO, CDC, and government health APIs into Azure Data Lake Gen2. A TensorFlow regression model is retrained and deployed automatically via Azure DevOps CI/CD, serving predictions through a Spring MVC REST API and React dashboard on Azure Cloud.',
@@ -694,6 +699,7 @@ const projects: ProjectWithArch[] = [
     tech: ['Python', 'Spring Boot', 'React', 'Oracle NetSuite', 'Docker', 'ETL'],
     github: null,
     external: null,
+    badge: 'ETL · Migration',
     architecture: {
       overview:
         'Full platform migration from Shopify to an internally-built stack at Bubbles & Books. A Python ETL pipeline extracted and transformed 10K+ products, customers, orders, and inventory records with zero data loss. Data lands in AWS RDS MySQL via a Spring Boot REST API, which also synchronises with Oracle NetSuite ERP (30% operational efficiency gain). A React frontend and Streamlit analytics dashboards complete the stack, all containerised in Kubernetes.',
@@ -809,7 +815,7 @@ export default function Projects() {
                           group-hover:text-accent transition-colors duration-200"
                       >
                         <ArchitectureIcon />
-                        Architecture
+                        {project.badge ?? 'Architecture'}
                       </span>
                     )}
                     {project.github && (
