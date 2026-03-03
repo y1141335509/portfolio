@@ -25,17 +25,6 @@ export default function OGImage() {
           gap: 72,
         }}
       >
-        {/* Subtle grid pattern */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage:
-              'linear-gradient(rgba(100,255,218,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(100,255,218,0.03) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-          }}
-        />
-
         {/* Avatar */}
         <div
           style={{
