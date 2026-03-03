@@ -1,6 +1,6 @@
 # 个人网站设计文档（Claude Code 使用）
 
-> **最后更新：2026-03-04**
+> **最后更新：2026-03-02**
 > 给未来 Claude Code 使用。包含当前网站完整状态、设计系统、内容数据、和待办事项。
 > 在修改网站前，请务必先读完这份文档。
 
@@ -251,7 +251,7 @@ Email:          yinghaiyu67@gmail.com
 
 ### 内容改进
 
-- [ ] **Projects 页加 GitHub 链接**：`Projects.tsx` 中 6 个项目卡片目前缺少外链。Financial Anomaly Detection / RAG Chatbot / COVID-19 Model 等若有公开 repo 或 demo，直接补充 `githubHref` / `demoHref` 字段即可，组件已支持扩展。
+- [ ] **Projects 页加 GitHub 链接**：`Projects.tsx` 中 6 个项目卡片目前缺少外链。若有公开 repo 或 demo，在项目对象里补充 `github` / `external` 字段即可，组件已支持。
 - [ ] **Testimonials（可选）**：如果 LinkedIn 上有 written recommendation，可在 About 页或 Contact 页加一个引用块，对招聘方 social proof 效果较强。
 
 ### 技术改进
@@ -260,6 +260,13 @@ Email:          yinghaiyu67@gmail.com
 - [ ] **OG image 加头像**：`src/app/opengraph-image.tsx` 目前生成纯文字暗色 OG 图。可把 `handsome-guy.jpeg` 嵌入进去（Next.js ImageResponse 支持 `<img>` 标签），在 LinkedIn / Twitter 分享时显示人像。
 - [ ] **Vercel Analytics**：在 `src/app/layout.tsx` 里加 `<Analytics />` 组件（`@vercel/analytics/react`，免费）即可统计页面 PV 和停留时长，一行代码。
 - [ ] **ReactFlow Controls 缩放按钮失效**：`PipelineGraph.tsx` 里 `<Controls showZoom showFitView />` 已渲染，但点击 +/- 按钮目前没有缩放效果。已用 `useNodesState` / `useEdgesState` 修复了拖拽问题，缩放按钮疑似受 CSS override（`width/height: 22px`）或 `preventScrolling={false}` 影响。待排查：检查 `.react-flow__controls-button` pointer-events、尝试移除自定义尺寸、或改用 `useReactFlow().zoomIn()` 自行绑定按钮。
+
+### 最近已完成（2026-03-02）
+
+- [x] **全部 6 个项目的架构图完成**：GrubMarket 双路径（Batch + ML）、Streaming Pipeline、COVID-19 MLOps、RAG Chatbot、LLM Product Generator、ETL Migration —— 均已实现为 ReactFlow 交互图。
+- [x] **产品 Logo 体系完善**：27 个产品 logo 统一存放于 `portfolio/public/logos/`，支持 `iconSize` 字段按需放大（默认 36px，可调至 42px 等）。涵盖 AWS (S3, RDS, SageMaker)、OpenAI (Embedding, GPT-4o)、LangChain、Shopify、RAG、KnowledgeBase 等。
+- [x] **节点拖拽交互修复**：改用 `useNodesState` / `useEdgesState` 解决了 ReactFlow 受控模式下拖拽失效问题。
+- [x] **节点视觉优化**：DataSource / Impact 节点改为顶/底 2px accent 条纹设计；Tag 文字增强为 `text-slate-light font-medium`；icon chip 背景改为 `rgba(240,245,255,0.92)` 浅色。
 
 ---
 

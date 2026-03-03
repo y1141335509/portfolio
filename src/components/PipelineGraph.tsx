@@ -18,7 +18,8 @@ type GNodeData = {
   label: string
   sub?: string
   tag?: string
-  icon?: string    // path served from /public, e.g. '/logos/S3.png'
+  icon?: string      // path served from /public, e.g. '/logos/S3.png'
+  iconSize?: number  // rendered image size inside chip (default 36)
   [key: string]: unknown
 }
 
@@ -35,6 +36,7 @@ function NodeContent({
   labelClass?: string
   dotClass: string
 }) {
+  const imgSize = (data.iconSize as number | undefined) ?? 36
   return (
     <div className="flex items-start gap-2.5">
       {data.icon && (
@@ -45,7 +47,7 @@ function NodeContent({
           <img
             src={data.icon}
             alt=""
-            style={{ width: 36, height: 36, objectFit: 'contain', display: 'block' }}
+            style={{ width: imgSize, height: imgSize, objectFit: 'contain', display: 'block' }}
           />
         </div>
       )}

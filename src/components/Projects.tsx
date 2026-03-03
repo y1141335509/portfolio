@@ -27,6 +27,7 @@ const financialAnomalyNodes: Node[] = [
       sub: 'Orders · Invoices · Inventory · Item Catalog across all subsidiary companies',
       tag: 'Data Source',
       icon: '/logos/Netsuite.png',
+      iconSize: 42,
     },
   },
   // ── Airflow group (must appear BEFORE its children) ───────────────────────
@@ -62,6 +63,7 @@ const financialAnomalyNodes: Node[] = [
       sub: 'Daily snapshots · Incremental delta files · Historical archive',
       tag: 'Storage',
       icon: '/logos/S3.png',
+      iconSize: 42,
     },
   },
   {
@@ -128,6 +130,7 @@ const financialAnomalyNodes: Node[] = [
       sub: 'Raw event data · Micro-batches · Staging area for Spark',
       tag: 'Storage',
       icon: '/logos/S3.png',
+      iconSize: 42,
     },
   },
   {
@@ -141,6 +144,7 @@ const financialAnomalyNodes: Node[] = [
       sub: '5-min micro-batch · Exactly-once via checkpointing · Trillion-row scale',
       tag: 'Stream Processing',
       icon: '/logos/PySpark.png',
+      iconSize: 42,
     },
   },
   {
@@ -196,6 +200,7 @@ const streamingNodes: Node[] = [
       sub: 'Custom event scripts · ~5 min latency · Continuous event emission',
       tag: 'Data Source',
       icon: '/logos/Netsuite.png',
+      iconSize: 42,
     },
   },
   {
@@ -207,6 +212,7 @@ const streamingNodes: Node[] = [
       sub: 'Raw event micro-batches · Partitioned by subsidiary + timestamp',
       tag: 'Storage',
       icon: '/logos/S3.png',
+      iconSize: 42,
     },
   },
   {
@@ -218,6 +224,7 @@ const streamingNodes: Node[] = [
       sub: '5-min trigger windows · Distributed across Databricks cluster · Schema validation',
       tag: 'Stream Processing',
       icon: '/logos/PySpark.png',
+      iconSize: 42,
     },
   },
   {
@@ -229,6 +236,7 @@ const streamingNodes: Node[] = [
       sub: 'WAL checkpoints to S3 · Exactly-once semantics · State recovery on failure',
       tag: 'Reliability',
       icon: '/logos/S3.png',
+      iconSize: 42,
     },
   },
   {
@@ -263,6 +271,8 @@ const covidNodes: Node[] = [
       label: 'Public Health APIs & Web Sources',
       sub: 'WHO · CDC · Government health APIs · Scrapy web crawler · Daily ingestion',
       tag: 'Data Source',
+      icon: '/logos/API.png',
+      iconSize: 42,
     },
   },
   {
@@ -285,6 +295,7 @@ const covidNodes: Node[] = [
       sub: 'Historical cases · Mobility + population density features · Batch predictions',
       tag: 'ML Pipeline',
       icon: '/logos/TensorFlow.png',
+      iconSize: 42,
     },
   },
   {
@@ -296,6 +307,7 @@ const covidNodes: Node[] = [
       sub: 'Daily model refresh · Blue-green deployment · Azure ML Model Registry · Rollback',
       tag: 'MLOps',
       icon: '/logos/AzureDevOps.png',
+      iconSize: 42,
     },
   },
   {
@@ -328,6 +340,8 @@ const ragNodes: Node[] = [
       label: 'Knowledge Base — Products, FAQs, Policy Docs',
       sub: 'Product catalog · Order history · Support policies · 10K+ records',
       tag: 'Data Source',
+      icon: '/logos/KnowledgeBase.png',
+      iconSize: 42,
     },
   },
   {
@@ -338,6 +352,8 @@ const ragNodes: Node[] = [
       label: 'LangChain Text Chunking',
       sub: 'Chunk size 512 · 50-token overlap · Document loaders',
       tag: 'Preprocessing',
+      icon: '/logos/LangChain.jpeg',
+      iconSize: 42,
     },
   },
   {
@@ -348,6 +364,8 @@ const ragNodes: Node[] = [
       label: 'OpenAI Embedding Generation',
       sub: 'text-embedding-3 · 1536 dimensions · Stored in Pinecone vector DB',
       tag: 'Embedding',
+      icon: '/logos/OpenAIEmbedding.png',
+      iconSize: 42,
     },
   },
   {
@@ -358,7 +376,8 @@ const ragNodes: Node[] = [
       label: 'LangChain RAG Orchestration',
       sub: 'Query embed → Top-K=5 retrieval (similarity ≥ 0.75) → context augment → GPT-4',
       tag: 'RAG Engine',
-      icon: '/logos/API.png',
+      icon: '/logos/RAG.png',
+      iconSize: 42,
     },
   },
   {
@@ -369,6 +388,8 @@ const ragNodes: Node[] = [
       label: 'OpenAI GPT-4 — Response Generation',
       sub: 'gpt-4-turbo · temperature 0.3 · max 500 tokens · grounded in retrieved context',
       tag: 'LLM',
+      icon: '/logos/OpenAIGPT4o.png',
+      iconSize: 42,
     },
   },
   {
@@ -412,6 +433,8 @@ const llmNodes: Node[] = [
       label: 'Data Preprocessing — Python Pipeline',
       sub: 'Tokenization · 80/20 train/val split · max 512 tokens · Hugging Face datasets',
       tag: 'Preprocessing',
+      icon: '/logos/Python.png',
+      iconSize: 42,
     },
   },
   {
@@ -422,7 +445,8 @@ const llmNodes: Node[] = [
       label: 'Llama 2 7B Fine-tuning via LoRA',
       sub: 'AWS SageMaker ml.g5.2xlarge (A10G 24GB) · LoRA rank 8 · 3 epochs · ~8h training',
       tag: 'Model Training',
-      icon: '/logos/S3.png',
+      icon: '/logos/AmazonSageMaker.png',
+      iconSize: 42,
     },
   },
   {
@@ -433,6 +457,8 @@ const llmNodes: Node[] = [
       label: 'AWS SageMaker Inference Endpoint',
       sub: 'ml.g5.xlarge · auto-scaling 1–3 instances · ~500ms latency per generation',
       tag: 'Deployment',
+      icon: '/logos/AmazonSageMaker.png',
+      iconSize: 42,
     },
   },
   {
@@ -444,6 +470,7 @@ const llmNodes: Node[] = [
       sub: 'Product attributes → AI-generated copy at scale · eliminates manual copy-writing',
       tag: 'Output',
       icon: '/logos/SpringMVC.png',
+      iconSize: 42,
     },
   },
 ]
@@ -465,6 +492,8 @@ const etlNodes: Node[] = [
       label: 'Shopify — Source E-commerce Platform',
       sub: 'Products 10K+ · Customers · Orders · Inventory · Historical data',
       tag: 'Data Source',
+      icon: '/logos/Shopify.png',
+      iconSize: 42,
     },
   },
   {
@@ -475,6 +504,8 @@ const etlNodes: Node[] = [
       label: 'Python ETL Pipeline — Data Migration',
       sub: 'Extract → cleanse → transform → load · Schema mapping · Zero data loss validation',
       tag: 'ETL',
+      icon: '/logos/Python.png',
+      iconSize: 42,
     },
   },
   {
@@ -486,6 +517,7 @@ const etlNodes: Node[] = [
       sub: 'JDBC → AWS RDS MySQL · Business logic · AI gateway · Kubernetes pod',
       tag: 'Application Layer',
       icon: '/logos/SpringMVC.png',
+      iconSize: 42,
     },
   },
   {
@@ -496,6 +528,8 @@ const etlNodes: Node[] = [
       label: 'AWS RDS MySQL — Primary Storage',
       sub: 'Products · Customers · Orders · Inventory · JDBC connection',
       tag: 'Database',
+      icon: '/logos/AmazonRDS.png',
+      iconSize: 42,
     },
   },
   {
@@ -507,6 +541,7 @@ const etlNodes: Node[] = [
       sub: '30% operational efficiency improvement · Financials · Inventory · Order management',
       tag: 'ERP Sync',
       icon: '/logos/Netsuite.png',
+      iconSize: 42,
     },
   },
   {
