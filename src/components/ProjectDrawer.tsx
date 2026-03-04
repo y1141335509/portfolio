@@ -129,11 +129,19 @@ export default function ProjectDrawer({ project, onClose }: ProjectDrawerProps) 
                     <h3 className="font-mono text-slate-lighter text-xs uppercase tracking-wider mb-4">
                       System Architecture
                     </h3>
-                    <PipelineGraph
-                      nodes={project.architecture.graph.nodes}
-                      edges={project.architecture.graph.edges}
-                      height={project.architecture.graph.height ?? 520}
-                    />
+                    {/* Full interactive graph — desktop only */}
+                    <div className="hidden md:block">
+                      <PipelineGraph
+                        nodes={project.architecture.graph.nodes}
+                        edges={project.architecture.graph.edges}
+                        height={project.architecture.graph.height ?? 520}
+                      />
+                    </div>
+                    {/* Mobile fallback — static overview */}
+                    <div className="md:hidden rounded border border-navy-lighter/30 bg-navy/40 p-5 text-center">
+                      <p className="font-mono text-xs text-slate/50 mb-1">Interactive diagram</p>
+                      <p className="text-slate text-sm">Best viewed on a wider screen</p>
+                    </div>
                   </div>
                 )}
 

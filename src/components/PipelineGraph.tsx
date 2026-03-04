@@ -6,9 +6,9 @@ import {
   Position,
   Background,
   BackgroundVariant,
-  Controls,
   useNodesState,
   useEdgesState,
+  useReactFlow,
 } from '@xyflow/react'
 import type { Node, Edge, NodeProps } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
@@ -161,6 +161,36 @@ const nodeTypes = {
   orchestrator: OrchestratorGroup,
 }
 
+// ─── Custom zoom controls (must render inside <ReactFlow> to access context) ──
+const BTN: React.CSSProperties = {
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  width: 22, height: 22,
+  background: '#112240', border: '1px solid #233554', borderRadius: 4,
+  color: '#8892b0', cursor: 'pointer', padding: 0,
+}
+function ZoomControls() {
+  const { zoomIn, zoomOut, fitView } = useReactFlow()
+  return (
+    <div style={{ position: 'absolute', bottom: 16, left: 16, display: 'flex', flexDirection: 'column', gap: 4, zIndex: 5 }}>
+      <button style={BTN} onClick={() => zoomIn({ duration: 200 })} title="Zoom in">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+        </svg>
+      </button>
+      <button style={BTN} onClick={() => zoomOut({ duration: 200 })} title="Zoom out">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 11H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2z"/>
+        </svg>
+      </button>
+      <button style={BTN} onClick={() => fitView({ padding: 0.18, duration: 200 })} title="Fit view">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+        </svg>
+      </button>
+    </div>
+  )
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 export interface PipelineGraphProps {
   nodes: Node[]
@@ -168,8 +198,8 @@ export interface PipelineGraphProps {
   height?: number
 }
 
-// useNodesState / useEdgesState are required so that Controls zoom buttons
-// and node dragging work. Without them ReactFlow silently drops all interactions.
+// useNodesState / useEdgesState are required for node dragging to work.
+// Without them ReactFlow silently drops all pointer interactions.
 export default function PipelineGraph({
   nodes: initialNodes,
   edges: initialEdges,
@@ -208,7 +238,7 @@ export default function PipelineGraph({
           size={1}
           variant={BackgroundVariant.Dots}
         />
-        <Controls showFitView showZoom showInteractive={false} />
+        <ZoomControls />
       </ReactFlow>
     </div>
   )
