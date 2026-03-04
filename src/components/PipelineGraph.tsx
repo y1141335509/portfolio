@@ -172,17 +172,17 @@ function ZoomControls() {
   const { zoomIn, zoomOut, fitView } = useReactFlow()
   return (
     <div style={{ position: 'absolute', bottom: 16, left: 16, display: 'flex', flexDirection: 'column', gap: 4, zIndex: 5 }}>
-      <button style={BTN} onClick={() => zoomIn({ duration: 200 })} title="Zoom in">
+      <button style={BTN} onClick={() => zoomIn()} title="Zoom in">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
         </svg>
       </button>
-      <button style={BTN} onClick={() => zoomOut({ duration: 200 })} title="Zoom out">
+      <button style={BTN} onClick={() => zoomOut()} title="Zoom out">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19 11H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2z"/>
         </svg>
       </button>
-      <button style={BTN} onClick={() => fitView({ padding: 0.18, duration: 200 })} title="Fit view">
+      <button style={BTN} onClick={() => fitView({ padding: 0.18 })} title="Fit view">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
         </svg>
