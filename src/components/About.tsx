@@ -76,6 +76,9 @@ export default function About() {
               in why things went the non-obvious way. And I run a personal quantitative trading system,
               mostly to stay honest about how automated systems actually behave at the edges.
             </p>
+            <p className="text-sm font-mono text-slate/50">
+              MBTI: <span className="text-accent/60">INTJ-T</span>
+            </p>
 
             {/* Skills grid */}
             <div className="pt-3">
